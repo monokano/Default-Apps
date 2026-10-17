@@ -1,0 +1,113 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {},
+    "%lld file types" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld 種類のファイル"
+          }
+        }
+      }
+    },
+    "Associate" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "関連付け"
+          }
+        }
+      }
+    },
+    "Associated with %@" : {
+      "comment" : "File list section header in Show All mode: file types associated with this app family (%@ = app name)",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@に関連付け"
+          }
+        }
+      }
+    },
+    "Associated with Other Apps" : {
+      "comment" : "File list section header in Show All mode: file types associated with other apps (not changed by Associate)",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "他のアプリに関連付け"
+          }
+        }
+      }
+    },
+    "GitHub Releases" : {
+      "comment" : "Help menu: opens the GitHub releases page",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GitHub Releases"
+          }
+        }
+      }
+    },
+    "No apps with multiple versions were found." : {
+      "comment" : "Sidebar: shown when no app has two or more installed versions",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複数のバージョンがインストールされたアプリは見つかりませんでした。"
+          }
+        }
+      }
+    },
+    "Refresh" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新"
+          }
+        }
+      }
+    },
+    "Select an app." : {
+      "comment" : "Detail pane: shown when nothing is selected in the sidebar",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリを選択してください。"
+          }
+        }
+      }
+    },
+    "Show All File Types" : {
+      "comment" : "View menu: toggle showing file types associated with other apps",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべての対応ファイルを表示"
+          }
+        }
+      }
+    },
+    "Some file types could not be associated." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一部のファイルを関連付けできませんでした。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
