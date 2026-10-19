@@ -55,6 +55,39 @@
         }
       }
     },
+    "macOS did not apply the association." : {
+      "comment" : "Alert title: none of the file types changed to the selected version",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOSが関連付けを反映しませんでした。"
+          }
+        }
+      }
+    },
+    "macOS did not apply the association for some file types." : {
+      "comment" : "Alert title: some of the file types did not change to the selected version",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "一部の書類の種類で、macOSが関連付けを反映しませんでした。"
+          }
+        }
+      }
+    },
+    "macOS security may prevent this change. Change it with \"Change All…\" in Finder's Get Info window." : {
+      "comment" : "Alert informative text: association was accepted without error but the default app did not change",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "macOSのセキュリティにより反映されないことがあります。Finderの「情報を見る」の「すべてを変更」で変更してください。"
+          }
+        }
+      }
+    },
     "No apps with multiple versions were found." : {
       "comment" : "Sidebar: shown when no app has two or more installed versions",
       "localizations" : {

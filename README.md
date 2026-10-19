@@ -24,6 +24,11 @@
 
 各アプリはどのバージョンも同じ Bundle ID を使用しているため、Bundle ID で指定する `LSSetDefaultRoleHandlerForContentType` ではバージョンを区別できません。Default Apps は、アプリの場所で指定できる `NSWorkspace.setDefaultApplication(at:toOpen:)` で関連付けます（Finder の「情報を見る → すべてを変更」と同じ仕組みです）。
 
+## 既知の制限
+
+- macOS 26.4 以降では、macOS のセキュリティにより、書類の種類ごとに関連付けの変更を確認するダイアログが表示されることがあります。ダイアログで変更を許可すると、関連付けが変更されます。
+- ダイアログが表示されずに、関連付けが反映されないこともあります。その場合は Default Apps が警告を表示します。Finder で対象のファイルの「情報を見る」を開き、「このアプリケーションで開く」でバージョンを選んで「すべてを変更」をクリックしてください（Finder からの変更では、確認のダイアログは表示されません）。
+
 ## 動作環境
 
 macOS 13.5 Ventura 以降（Universal Binary）

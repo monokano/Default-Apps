@@ -103,18 +103,31 @@ final class ViewModel: ObservableObject {
 
         Task {
             var failures: [String] = []
+            var applied: [FileTypeInfo] = []
             for ft in targets {
                 do {
                     try await NSWorkspace.shared.setDefaultApplication(at: version.appURL, toOpen: ft.type)
+                    applied.append(ft)
                 } catch {
                     failures.append("\(ft.extensionsText) — \(error.localizedDescription)")
                 }
+            }
+
+            // エラー無しでも macOS（LaunchServices）の不調で反映されないことがある（Issue #1）。
+            // 反映の遅れで誤って警告しないよう、変わっていなければ少し待って読み直す
+            var notApplied = applied.filter { !isHandled($0, by: version) }
+            if !notApplied.isEmpty {
+                try? await Task.sleep(for: .seconds(1))
+                notApplied = notApplied.filter { !isHandled($0, by: version) }
             }
             isAssociating = false
 
             refreshHandlers()
             if !failures.isEmpty {
                 showFailureAlert(failures)
+            }
+            if !notApplied.isEmpty {
+                showNotAppliedAlert(all: notApplied.count == targets.count)
             }
         }
     }
@@ -158,6 +171,21 @@ final class ViewModel: ObservableObject {
         alert.alertStyle = .warning
         alert.messageText = String(localized: "Some file types could not be associated.")
         alert.informativeText = failures.joined(separator: "\n")
+        alert.runModal()
+    }
+
+    private func isHandled(_ fileType: FileTypeInfo, by version: AppVersion) -> Bool {
+        AppScanner.currentHandler(for: fileType.type)?.standardized == version.appURL.standardized
+    }
+
+    /// 関連付けはエラー無しで受け付けられたが、関連付け先が変わらなかったとき
+    private func showNotAppliedAlert(all: Bool) {
+        let alert = NSAlert()
+        alert.alertStyle = .warning
+        alert.messageText = all
+            ? String(localized: "macOS did not apply the association.")
+            : String(localized: "macOS did not apply the association for some file types.")
+        alert.informativeText = String(localized: "macOS security may prevent this change. Change it with \"Change All…\" in Finder's Get Info window.")
         alert.runModal()
     }
 }
