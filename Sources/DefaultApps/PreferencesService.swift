@@ -2,12 +2,13 @@ import AppKit
 
 struct PreferencesService {
 
-    /// 表示メニュー「すべての対応ファイルを表示」の状態（@AppStorage で直接読み書きする）
-    static let showAllFileTypesKey = "ShowAllFileTypes"
-
     private enum Key {
         static let windowFrame = "WindowFrame"
-        static let selectedFamily = "SelectedFamily"
+        static let appPaths = "AppPaths"
+        static let checkedTypes = "CheckedTypes"
+        static let selectedApp = "SelectedApp"
+        /// v1 の「すべての対応ファイルを表示」（ShowAllFileTypes）とは意味が違うので別のキーにする
+        static let showNonDocumentTypes = "ShowNonDocumentTypes"
     }
 
     // MARK: - Window frame
@@ -32,13 +33,44 @@ struct PreferencesService {
         return NSRect(x: x, y: y, width: w, height: h)
     }
 
-    // MARK: - Selected app family（サイドバーで最後に選んだアプリ群の Bundle ID）
+    // MARK: - サイドバーのアプリ（.app のパス）
 
-    static func saveSelectedFamily(_ bundleID: String?) {
-        UserDefaults.standard.set(bundleID, forKey: Key.selectedFamily)
+    static func saveAppPaths(_ paths: [String]) {
+        UserDefaults.standard.set(paths, forKey: Key.appPaths)
     }
 
-    static func loadSelectedFamily() -> String? {
-        UserDefaults.standard.string(forKey: Key.selectedFamily)
+    static func loadAppPaths() -> [String] {
+        UserDefaults.standard.stringArray(forKey: Key.appPaths) ?? []
+    }
+
+    // MARK: - チェックした書類の種類（アプリのパス → UTType 識別子）
+
+    static func saveCheckedTypes(_ checked: [String: Set<String>]) {
+        UserDefaults.standard.set(checked.mapValues { Array($0).sorted() }, forKey: Key.checkedTypes)
+    }
+
+    static func loadCheckedTypes() -> [String: Set<String>] {
+        let dict = UserDefaults.standard.dictionary(forKey: Key.checkedTypes) as? [String: [String]] ?? [:]
+        return dict.mapValues(Set.init)
+    }
+
+    // MARK: - サイドバーで最後に選んだアプリ（パス）
+
+    static func saveSelectedApp(_ path: String?) {
+        UserDefaults.standard.set(path, forKey: Key.selectedApp)
+    }
+
+    static func loadSelectedApp() -> String? {
+        UserDefaults.standard.string(forKey: Key.selectedApp)
+    }
+
+    // MARK: - 表示メニュー「すべての対応ファイルを表示」（書類として開かない種類も表示する）
+
+    static func saveShowAllFileTypes(_ on: Bool) {
+        UserDefaults.standard.set(on, forKey: Key.showNonDocumentTypes)
+    }
+
+    static func loadShowAllFileTypes() -> Bool {
+        UserDefaults.standard.bool(forKey: Key.showNonDocumentTypes)
     }
 }

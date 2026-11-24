@@ -2,44 +2,221 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {},
-    "%lld file types" : {
+    "%@ is also checked for %@." : {
+      "comment" : "Notice: the same extension is checked for another app in the sidebar (1st %@ = extensions, 2nd %@ = app names)",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%lld 種類のファイル"
+            "value" : "%1$@は%2$@でもチェックされています。"
           }
         }
       }
     },
-    "Associate" : {
+    "%lld file types, %lld checked" : {
+      "comment" : "Status bar: number of file types and how many are checked",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "関連付け"
+            "value" : "%1$lld種類のファイル（%2$lld種類をチェック）"
           }
         }
       }
     },
-    "Associated with %@" : {
-      "comment" : "File list section header in Show All mode: file types associated with this app family (%@ = app name)",
+    "Add" : {
+      "comment" : "Open panel button: adds the chosen apps to the sidebar",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@に関連付け"
+            "value" : "追加"
           }
         }
       }
     },
-    "Associated with Other Apps" : {
-      "comment" : "File list section header in Show All mode: file types associated with other apps (not changed by Associate)",
+    "Add App" : {
+      "comment" : "Sidebar + button tooltip",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "他のアプリに関連付け"
+            "value" : "アプリを追加"
+          }
+        }
+      }
+    },
+    "Add App…" : {
+      "comment" : "File menu",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリを追加…"
+          }
+        }
+      }
+    },
+    "Add an app to the sidebar." : {
+      "comment" : "Detail pane: shown when the sidebar is empty",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サイドバーにアプリを追加してください。"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
+          }
+        }
+      }
+    },
+    "Check the file extensions to export dummy files for." : {
+      "comment" : "Header text above the file list",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダミーファイルを書き出す拡張子にチェックを入れてください。"
+          }
+        }
+      }
+    },
+    "Checked" : {
+      "comment" : "File list section header: file types that were checked at the last refresh",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "チェック済み"
+          }
+        }
+      }
+    },
+    "Choose a folder to export the dummy files to." : {
+      "comment" : "Open panel message",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダミーファイルの書き出し先のフォルダを選んでください。"
+          }
+        }
+      }
+    },
+    "Click + or drag apps here to add them." : {
+      "comment" : "Sidebar: shown when no app has been added",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+をクリックするか、ここにアプリをドラッグして追加します。"
+          }
+        }
+      }
+    },
+    "Default App" : {
+      "comment" : "File list column header: app that currently opens the file type",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "関連付けアプリ"
+          }
+        }
+      }
+    },
+    "Documents" : {
+      "comment" : "File list section header: file types the app opens as documents (role Editor/Viewer)",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書類"
+          }
+        }
+      }
+    },
+    "Dummy" : {
+      "comment" : "File name (without extension) of the exported empty dummy files",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダミー"
+          }
+        }
+      }
+    },
+    "Dummy Files" : {
+      "comment" : "Name of the folder created to hold multiple exported dummy files",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダミーファイル"
+          }
+        }
+      }
+    },
+    "Export" : {
+      "comment" : "Open panel button: exports the dummy files to the chosen folder",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書き出す"
+          }
+        }
+      }
+    },
+    "Export Dummy Files…" : {
+      "comment" : "Button and File menu item",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダミーファイルを書き出す…"
+          }
+        }
+      }
+    },
+    "Exported %lld dummy files to \"%@\"." : {
+      "comment" : "Status bar after export (%lld = count, %@ = folder name)",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダミーファイルを%1$lld個、「%2$@」に書き出しました。"
+          }
+        }
+      }
+    },
+    "Extension" : {
+      "comment" : "File list column header",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拡張子"
+          }
+        }
+      }
+    },
+    "Files with the same name already exist. Replace them?" : {
+      "comment" : "Alert title before overwriting non-empty files",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "同じ名前のファイルがすでにあります。置き換えますか？"
           }
         }
       }
@@ -55,46 +232,35 @@
         }
       }
     },
-    "macOS did not apply the association." : {
-      "comment" : "Alert title: none of the file types changed to the selected version",
+    "Kind" : {
+      "comment" : "File list column header: file type description",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "macOSが関連付けを反映しませんでした。"
+            "value" : "種類"
           }
         }
       }
     },
-    "macOS did not apply the association for some file types." : {
-      "comment" : "Alert title: some of the file types did not change to the selected version",
+    "No Results" : {
+      "comment" : "File list: shown when the extension search matches nothing",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "一部の書類の種類で、macOSが関連付けを反映しませんでした。"
+            "value" : "一致する拡張子はありません"
           }
         }
       }
     },
-    "macOS security may prevent this change. Change it with \"Change All…\" in Finder's Get Info window." : {
-      "comment" : "Alert informative text: association was accepted without error but the default app did not change",
+    "Other File Types (Presets, Settings, etc.)" : {
+      "comment" : "File list section header: file types the app declares but does not open as documents (role None)",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "macOSのセキュリティにより反映されないことがあります。Finderの「情報を見る」の「すべてを変更」で変更してください。"
-          }
-        }
-      }
-    },
-    "No apps with multiple versions were found." : {
-      "comment" : "Sidebar: shown when no app has two or more installed versions",
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "複数のバージョンがインストールされたアプリは見つかりませんでした。"
+            "value" : "その他（プリセット・設定など）"
           }
         }
       }
@@ -105,6 +271,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "更新"
+          }
+        }
+      }
+    },
+    "Remove from Sidebar" : {
+      "comment" : "Sidebar context menu and - button tooltip",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サイドバーから削除"
+          }
+        }
+      }
+    },
+    "Replace" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "置き換える"
+          }
+        }
+      }
+    },
+    "Search Extensions" : {
+      "comment" : "Search field placeholder",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "拡張子を検索"
           }
         }
       }
@@ -121,7 +319,7 @@
       }
     },
     "Show All File Types" : {
-      "comment" : "View menu: toggle showing file types associated with other apps",
+      "comment" : "View menu: also show file types the app does not open as documents (presets, settings, etc.)",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -131,12 +329,23 @@
         }
       }
     },
-    "Some file types could not be associated." : {
+    "Some dummy files could not be exported." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "一部のファイルを関連付けできませんでした。"
+            "value" : "一部のダミーファイルを書き出せませんでした。"
+          }
+        }
+      }
+    },
+    "The folder for the dummy files could not be created." : {
+      "comment" : "Alert title when creating the export folder fails",
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ダミーファイルのフォルダを作成できませんでした。"
           }
         }
       }

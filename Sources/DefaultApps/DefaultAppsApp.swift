@@ -8,7 +8,7 @@ struct DefaultAppsApp: App {
         WindowGroup {
             ContentView()
         }
-        .defaultSize(width: 760, height: 560)
+        .defaultSize(width: 980, height: 620)
         .commands {
             DefaultAppsCommands()
         }

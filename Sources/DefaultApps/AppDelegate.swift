@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard let window = NSApp.windows.first(where: { $0.canBecomeMain }) else { return }
 
         window.isRestorable = false
-        window.minSize = NSSize(width: 600, height: 300)
+        window.minSize = NSSize(width: 640, height: 300)
         window.animationBehavior = .none
 
         // ウィンドウ位置を復元

@@ -95,6 +95,7 @@
 				AA33333300000000000000D2 /* Frameworks */,
 				AA33333300000000000000D3 /* Resources */,
 				AA33333300000000000000D4 /* Set Copyright Year */,
+				6D1DB99230B1A22F0090909F /* Increment Build Number */,
 			);
 			buildRules = (
 			);
@@ -152,6 +153,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6D1DB99230B1A22F0090909F /* Increment Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"$DEPLOYMENT_LOCATION\" = \"YES\" ]; then\n    build=$((CURRENT_PROJECT_VERSION + 1))\n    /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build\" \\\n        \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi\n";
+		};
 		AA33333300000000000000D4 /* Set Copyright Year */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -314,7 +334,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 19;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = C9U3E9EBLM;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -327,7 +347,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tama-san.DefaultApps";
 				PRODUCT_NAME = "Default Apps";
 				SDKROOT = macosx;
@@ -344,7 +364,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 19;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = C9U3E9EBLM;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -357,7 +377,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.tama-san.DefaultApps";
 				PRODUCT_NAME = "Default Apps";
 				SDKROOT = macosx;

@@ -2,10 +2,21 @@ import SwiftUI
 
 struct DefaultAppsCommands: Commands {
     @FocusedObject private var vm: ViewModel?
-    @AppStorage(PreferencesService.showAllFileTypesKey) private var showAllFileTypes = false
 
     var body: some Commands {
-        CommandGroup(replacing: .newItem) {}
+        // ファイルメニュー: 新規の代わりにアプリの追加・ダミーファイルの書き出し
+        CommandGroup(replacing: .newItem) {
+            Button(String(localized: "Add App…")) {
+                vm?.presentAddPanel()
+            }
+            .keyboardShortcut("o", modifiers: .command)
+
+            Button(String(localized: "Export Dummy Files…")) {
+                vm?.exportDummyFiles()
+            }
+            .keyboardShortcut("e", modifiers: .command)
+            .disabled((vm?.checkedCount ?? 0) == 0)
+        }
 
         CommandGroup(replacing: .undoRedo) {}
 
@@ -16,8 +27,13 @@ struct DefaultAppsCommands: Commands {
             }
             .keyboardShortcut("r", modifiers: .command)
 
-            Toggle(String(localized: "Show All File Types"), isOn: $showAllFileTypes)
-                .keyboardShortcut("a", modifiers: [.command, .shift])
+            // 書類として開かない種類（プリセット・設定など。Role が None）も「その他」の区分に表示する
+            Toggle(String(localized: "Show All File Types"), isOn: Binding(
+                get: { vm?.showAllFileTypes ?? false },
+                set: { vm?.showAllFileTypes = $0 }
+            ))
+            .keyboardShortcut("a", modifiers: [.command, .shift])
+            .disabled(vm == nil)
 
             Divider()
         }
@@ -30,6 +46,5 @@ struct DefaultAppsCommands: Commands {
         }
     }
 
-    // TODO: GitHub リポジトリは未作成（2026-10-18 時点で予定の URL）
     private static let releasesURL = URL(string: "https://github.com/monokano/Default-Apps/releases")!
 }
