@@ -28,7 +28,7 @@ struct ContentView: View {
                     Image(nsImage: app.icon)
                         .resizable()
                         .interpolation(.high)
-                        .frame(width: 16, height: 16)
+                        .frame(width: 18, height: 18)
                 }
                 .help(app.appURL.path)
                 .contextMenu {

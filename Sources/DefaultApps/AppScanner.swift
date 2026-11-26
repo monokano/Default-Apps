@@ -32,7 +32,7 @@ struct AppScanner {
             name: displayName(of: url),
             version: version,
             buildNumber: (plist["AdobeBuildNumber"] as? String) ?? (plist["CFBundleVersion"] as? String),
-            icon: NSWorkspace.shared.icon(forFile: url.path),
+            icon: bundleIcon(appURL: url, info: plist) ?? NSWorkspace.shared.icon(forFile: url.path),
             fileTypes: makeFileTypes(docTypes)
         )
     }
@@ -60,6 +60,17 @@ struct AppScanner {
         let plistURL = bundle.appendingPathComponent("Contents/Info.plist")
         guard let data = try? Data(contentsOf: plistURL) else { return nil }
         return (try? PropertyListSerialization.propertyList(from: data, format: nil)) as? [String: Any]
+    }
+
+    /// アプリのアイコンを Info.plist の CFBundleIconFile の .icns から直接読む。
+    /// macOS 26 以降の NSWorkspace.icon(forFile:) は、Icon Composer 形式のアイコンを持たないアプリ
+    /// （Adobe 製品など）のアイコンを縮めてグレーの角丸の枠に入れて返すため。
+    /// 読めなければ nil（呼び出し側で従来の API に戻す）。
+    /// 詳細は App-共有資料/アプリアイコンのグレー枠_macOS26以降.md
+    private static func bundleIcon(appURL: URL, info: [String: Any]) -> NSImage? {
+        guard let name = info["CFBundleIconFile"] as? String, !name.isEmpty else { return nil }
+        let file = name.hasSuffix(".icns") ? name : name + ".icns"
+        return NSImage(contentsOf: appURL.appendingPathComponent("Contents/Resources/\(file)"))
     }
 
     /// 表示名。.app 名を使うが、入っているフォルダ名が .app 名で始まるならフォルダ名を使う
