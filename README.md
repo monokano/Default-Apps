@@ -7,6 +7,7 @@ macOS用デスクトップアプリ
 ## ダウンロード
 
 [Default-Apps-201.zip](https://github.com/monokano/Default-Apps/releases/download/2.0.1/Default-Apps-201.zip)
+<br>[更新内容](https://github.com/monokano/Default-Apps/releases)
 
 ## 用途
 
