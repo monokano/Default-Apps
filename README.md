@@ -4,6 +4,10 @@
 
 macOS用デスクトップアプリ
 
+## ダウンロード
+
+[Default-Apps-201.zip](https://github.com/monokano/Default-Apps/releases/download/2.0.1/Default-Apps-201.zip)
+
 ## 用途
 
 ファイルの関連付けを補助するユーティリティアプリです。
